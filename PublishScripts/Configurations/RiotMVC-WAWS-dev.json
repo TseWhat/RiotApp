@@ -1,0 +1,21 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "RiotMVC",
+            "location": "North Europe"
+        },
+        "databases": [
+            {
+                "connectionStringName": "DefaultConnection",
+                "databaseName": "RiotMVC_db",
+                "serverName": "l4kn5cbs6o",
+                "user": "RiotAdmin",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "West Europe"
+            }
+        ]
+    }
+}
