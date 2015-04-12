@@ -40,6 +40,7 @@ namespace RiotMVC.Controllers
             if (gameIds.Count > 0)
             {
                 var api = RiotApi.GetInstance(riotApi.KeyOnly);
+                var staticApi = StaticRiotApi.GetInstance(riotApi.KeyOnly);
 
                 List<MatchDetail> matchDetails = new List<MatchDetail>();
 
@@ -48,6 +49,9 @@ namespace RiotMVC.Controllers
                 {
                     matchDetails.Add(api.GetMatch(Region.euw, gameIds[i]));
                 }
+
+                 staticApi.GetChampions(Region.euw);
+                
 
                 ScoreCardCalculator scoreCalculator = new ScoreCardCalculator();
 
