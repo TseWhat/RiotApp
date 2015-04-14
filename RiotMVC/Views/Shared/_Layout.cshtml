@@ -36,10 +36,12 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
+    <div class="container body-content no-radius body-background">
+        <div>
+            @RenderBody()
+        </div>
         <hr />
-        <footer>
+        <footer >
             <p>&copy; @DateTime.Now.Year - Riot App</p>
         </footer>
     </div>

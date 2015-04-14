@@ -3,6 +3,7 @@ using RiotAPI.Entities;
 using RiotMVC.Models;
 using RiotSharp;
 using RiotSharp.MatchEndpoint;
+using RiotSharp.StaticDataEndpoint;
 using RiotSharp.SummonerEndpoint;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,7 @@ namespace RiotMVC.Controllers
                     matchDetails.Add(api.GetMatch(Region.euw, gameIds[i]));
                 }
 
-                 staticApi.GetChampions(Region.euw);
+                ChampionListStatic championList = staticApi.GetChampions(Region.euw);
                 
 
                 ScoreCardCalculator scoreCalculator = new ScoreCardCalculator();
@@ -61,5 +62,6 @@ namespace RiotMVC.Controllers
             }
 
             return Json(model, JsonRequestBehavior.AllowGet);
-        }    }
+        }    
+    }
 }
