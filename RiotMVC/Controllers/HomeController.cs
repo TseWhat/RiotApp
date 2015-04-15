@@ -46,6 +46,7 @@ namespace RiotMVC.Controllers
                 List<MatchDetail> matchDetails = new List<MatchDetail>();
 
 
+
                 for (int i = 0; i < gameIds.Count; i++)
                 {
                     matchDetails.Add(api.GetMatch(Region.euw, gameIds[i]));
@@ -54,9 +55,11 @@ namespace RiotMVC.Controllers
                 ChampionListStatic championList = staticApi.GetChampions(Region.euw);
                 
 
-                ScoreCardCalculator scoreCalculator = new ScoreCardCalculator();
+                DataExtractor dataExtractor = new DataExtractor();
 
-                model.ChampionScoreCards = scoreCalculator.CalculateChampionScores(matchDetails, riotApi.GetChampions());
+                model.NumberOfGames = matchDetails.Where(match => match != null).Count();
+                model.AverageStats = dataExtractor.CalculateAverageStats(matchDetails);
+                model.ChampionScoreCards = dataExtractor.CalculateChampionScores(matchDetails, championList);
 
 
             }

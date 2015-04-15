@@ -11,6 +11,8 @@ namespace RiotMVC.Models
 {
     public class SummonerModel
     {
+        public long NumberOfGames { get; set; }
+        public AverageStats AverageStats { get; set; }
         public List<ScoreCard> ChampionScoreCards { get; set; }
 
         public SummonerModel ()
