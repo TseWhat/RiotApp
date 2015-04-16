@@ -10,6 +10,7 @@ namespace RiotAPI.Entities
     {
         public int ChampionId { get; set; }
         public string ChampionName { get; set; }
+        public long TimesPlayed { get; set; }
         public long Kills { get; set; }
         public long Deaths { get; set; }
         public long Assists { get; set; }

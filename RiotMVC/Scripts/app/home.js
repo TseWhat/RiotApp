@@ -19,7 +19,10 @@
     });
 
     $("#submit").on("click", function () {
+        $("#loading").removeClass("hidden");
+        $("#statsSection").fadeOut(300);
         $("#submit").text("Requesting...").attr("disabled", "true");
+        $("#championTable_wrapper").fadeOut(300);
         $("#championTable tbody").empty();
 
         $.ajax(homeUrl + "/GetMatchInformation", {
@@ -31,6 +34,7 @@
                 for (var i = 0; i < data.ChampionScoreCards.length; i++) {
                     var dataRows = "<tr>";
                     dataRows += "<td>" + data.ChampionScoreCards[i].ChampionName + "</td>";
+                    dataRows += "<td>" + data.ChampionScoreCards[i].TimesPlayed + "</td>";
                     dataRows += "<td>" + data.ChampionScoreCards[i].Kills + "</td>";
                     dataRows += "<td>" + data.ChampionScoreCards[i].Deaths + "</td>";
                     dataRows += "<td>" + data.ChampionScoreCards[i].Assists + "</td>";
@@ -54,12 +58,16 @@
                 $("#biggestCrit").text(data.AverageStats.BiggestCrit);
                 $("#teemoDeaths").text(teemoDeaths);
 
-                $("#championTable").DataTable();
-
+                $("#championTable").DataTable({
+                    paging: false
+                });
+                $("#championTable_wrapper").fadeIn(300);
+                $("#statsSection").removeClass("hidden");
             }
         })
         .always(function () {
             $("#submit").text("Submit").removeAttr("disabled");
+            $("#loading").fadeOut("hidden");
         });
 
 

@@ -1,7 +1,7 @@
 ﻿@model  RiotMVC.Models.SummonerModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "URF Stats";
 }
 
 
@@ -27,13 +27,13 @@
     <div class="tile-header">        
         <div class="row header-separator">
             <div class="col-md-12 form-group form-inline form-horizontal row" style="margin-top: 30px">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label>Date</label>
-                    <input id="date" type="date" name="date" data-date-start-date="02/04/2015" data-date-end-date="13/04/2015" class="form-control" />
+                    <input id="date" type="date" name="date" data-date-start-date="02/04/2015" data-date-end-date="13/04/2015" class="form-control date-field" />
                 </div>
-                <div class="col-md-2 ">
+                <div class="col-md-3 ">
                     <label>Time</label>
-                    <select id="hours" name="hours">
+                    <select class="form-control time-field" id="hours" name="hours">
                         <option>00</option>
                         <option>01</option>
                         <option>02</option>
@@ -59,7 +59,7 @@
                         <option>22</option>
                         <option>23</option>
                     </select>
-                    <select id="minutes" name="minutes">
+                    <select class="form-control time-field" id="minutes" name="minutes">
                         <option>00</option>
                         <option>05</option>
                         <option>10</option>
@@ -74,7 +74,7 @@
                         <option>55</option>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <button id="submit" type="button" class="btn btn-primary">Submit</button>
                 </div>
             </div>
@@ -83,25 +83,31 @@
     </div>
 
     <div class="tile-body">
-        <div class="numberOfGamesSection">
-            <p>Total Games: </p><span id="totalGames"></span>
+        <div id="loading" class="loading hidden">
+            <img src="~/Content/images/ajax-loader.gif" alt="Loading..." />
         </div>
-        <div class="averageStatsSection">
-            <p>Total Kills: <span id="totalKills"></span></p>
-            <p>Total Deaths: <span id="totalDeaths"></span></p>
-            <p>Double Kills: <span id="doubleKills"></span></p>
-            <p>Triple Kills: <span id="tripleKills"></span></p>
-            <p>Quadra Kills: <span id="quadraKills"></span></p>
-            <p>Penta Kills: <span id="pentaKills"></span></p>
-            <p>Biggest Crit: <span id="biggestCrit"></span></p>
-        </div>
-        <div class="teemoSection">
-            <span>Number of Teemo deaths: <span id="teemoDeaths"></span></span>
+        <div id="statsSection" class="">
+            <div class="numberOfGamesSection col-sm-4 col-sm-offset-4">
+                <p>Total Games: <span id="totalGames"></span></p>
+            </div>
+            <div class="averageStatsSection row">
+                <p>Total Kills: <span id="totalKills"></span></p>
+                <p>Total Deaths: <span id="totalDeaths"></span></p>
+                <p>Double Kills: <span id="doubleKills"></span></p>
+                <p>Triple Kills: <span id="tripleKills"></span></p>
+                <p>Quadra Kills: <span id="quadraKills"></span></p>
+                <p>Penta Kills: <span id="pentaKills"></span></p>
+                <p>Biggest Crit: <span id="biggestCrit"></span></p>
+            </div>
+            <div class="teemoSection">
+                <span>Number of Teemo deaths: <span id="teemoDeaths"></span></span>
+            </div>
         </div>
         <table id="championTable" class="table table-striped table-hover hidden">
             <thead>
                 <tr>
                     <th>Champion</th>
+                    <th>Times Played</th>
                     <th>Kills</th>
                     <th>Deaths</th>
                     <th>Assists</th>

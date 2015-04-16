@@ -59,6 +59,7 @@ namespace RiotAPI
                         {
                             ChampionId = championId,
                             ChampionName = champions.Champions.Values.Single(id => id.Id == championId).Name,
+                            TimesPlayed = 1,
                             Kills = stats.Kills,
                             Deaths = stats.Deaths,
                             Assists = stats.Assists
@@ -69,6 +70,7 @@ namespace RiotAPI
                             championScores[championId].Kills += score.Kills;
                             championScores[championId].Deaths += score.Deaths;
                             championScores[championId].Assists += score.Assists;
+                            championScores[championId].TimesPlayed += score.TimesPlayed;
                         }
                         else
                             championScores.Add(championId, score);
