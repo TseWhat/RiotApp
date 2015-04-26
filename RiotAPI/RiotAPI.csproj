@@ -60,16 +60,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="APIMethods.cs" />
     <Compile Include="Entities\AverageStats.cs" />
     <Compile Include="Entities\Champion.cs" />
     <Compile Include="Entities\ChampionList.cs" />
     <Compile Include="Entities\ChampionNames.cs" />
+    <Compile Include="Entities\Region.cs" />
     <Compile Include="Entities\ScoreCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataExtractor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

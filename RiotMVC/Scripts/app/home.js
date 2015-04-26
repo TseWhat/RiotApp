@@ -26,7 +26,9 @@
         $("#championTable tbody").empty();
 
         $.ajax(homeUrl + "/GetMatchInformation", {
-            data: { hours: $("#hours").val(), minutes: $("#minutes").val(), date: $("#date").val() },
+            data: {
+                hours: $("#hours").val(), minutes: $("#minutes").val(), date: $("#date").val(), region: $("#region").val()
+            },
             success: function (data) {
                 $("#championTable").removeClass("hidden");
                 var teemoDeaths = 0;
@@ -67,7 +69,7 @@
         })
         .always(function () {
             $("#submit").text("Submit").removeAttr("disabled");
-            $("#loading").fadeOut("hidden");
+            $("#loading").fadeOut(300);
         });
 
 

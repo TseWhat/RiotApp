@@ -82,6 +82,10 @@ textarea {
     width: 30%;
 }
 
+.region-field {
+    width: 50%;
+}
+
 .header-separator {
     border-bottom: solid 3px #5f2f03;
 }
@@ -109,6 +113,12 @@ textarea {
     padding: 100px 50px 50px 100px;
     border: 1px #000 solid;
     background-color: #222222;
+    border: 2px solid #808080;
+    box-shadow: 0 1px 5px #222222;
+}
+
+.tile-border {
+
 }
 
 .numberOfGamesSection p {

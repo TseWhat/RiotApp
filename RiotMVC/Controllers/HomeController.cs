@@ -25,11 +25,11 @@ namespace RiotMVC.Controllers
             return View(model);
         }
 
-        public JsonResult GetMatchInformation(int hours, int minutes, string date )
+        public JsonResult GetMatchInformation(int hours, int minutes, string date, int region )
         {
             SummonerModel model = new SummonerModel();
 
-            API riotApi = new API();
+            API riotApi = new API((RiotAPI.Entities.Region)region);
 
 
             DateTime parsedDate = DateTime.Parse(date);
@@ -40,7 +40,7 @@ namespace RiotMVC.Controllers
 
             if (gameIds.Count > 0)
             {
-                var api = RiotApi.GetInstance(riotApi.KeyOnly);
+               // var api = RiotApi.GetInstance(riotApi.KeyOnly);
                 var staticApi = StaticRiotApi.GetInstance(riotApi.KeyOnly);
 
                 List<MatchDetail> matchDetails = new List<MatchDetail>();
@@ -49,17 +49,17 @@ namespace RiotMVC.Controllers
 
                 for (int i = 0; i < gameIds.Count; i++)
                 {
-                    matchDetails.Add(api.GetMatch(Region.euw, gameIds[i]));
+                  //  matchDetails.Add(api.GetMatch(Region.euw, gameIds[i]));
                 }
 
-                ChampionListStatic championList = staticApi.GetChampions(Region.euw);
+              //  ChampionListStatic championList = staticApi.GetChampions(Region.euw);
                 
 
                 DataExtractor dataExtractor = new DataExtractor();
 
                 model.NumberOfGames = matchDetails.Where(match => match != null).Count();
                 model.AverageStats = dataExtractor.CalculateAverageStats(matchDetails);
-                model.ChampionScoreCards = dataExtractor.CalculateChampionScores(matchDetails, championList);
+               // model.ChampionScoreCards = dataExtractor.CalculateChampionScores(matchDetails, championList);
 
 
             }

@@ -74,7 +74,22 @@
                         <option>55</option>
                     </select>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-3">
+                    <label>Region</label>
+                    <select class="form-control region-field" id="region" name="region">
+                        <option value="0">BR</option>
+                        <option value="1">EUNE</option>
+                        <option value="2">EUW</option>
+                        <option value="3">KR</option>
+                        <option value="4">LAN</option>
+                        <option value="5">LAS</option>
+                        <option value="6">NA</option>
+                        <option value="7">OCE</option>
+                        <option value="8">RU</option>
+                        <option value="9">TR</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
                     <button id="submit" type="button" class="btn btn-primary">Submit</button>
                 </div>
             </div>
@@ -87,8 +102,10 @@
             <img src="~/Content/images/ajax-loader.gif" alt="Loading..." />
         </div>
         <div id="statsSection" class="">
-            <div class="numberOfGamesSection col-sm-4 col-sm-offset-4">
-                <p>Total Games: <span id="totalGames"></span></p>
+            <div class="tile-border">
+                <div class="numberOfGamesSection col-sm-4 col-sm-offset-4">
+                    <p>Total Games: <span id="totalGames"></span></p>
+                </div>
             </div>
             <div class="averageStatsSection row">
                 <p>Total Kills: <span id="totalKills"></span></p>
